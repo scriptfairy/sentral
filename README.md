@@ -6,6 +6,20 @@ This is a partial application based on the provided spec. The back end is writte
 
 For the back end data storage, I used default PHP session instead of typical database just to simplify the code.
 
+## Getting started
+
+Prerequisites:
+
+* PHP installed
+* Composer installed
+
+Running the application:
+
+```
+cd sentral
+composer install --ignore-platform-reqs
+bin/cake server
+```
 
 ## Limitations
 
@@ -34,6 +48,20 @@ For the back end data storage, I used default PHP session instead of typical dat
 * Has been designed and tested to run on Chrome, for example the front end uses `fetch()` for async requests, ES6 arrow functions, and HTML5 date and time inputs which are not available natively in all browsers.
 
 * I hard coded most of the data including school address, listing of events.
+
+* The core files for review are:
+
+| File                                         | Purpose
+|----------------------------------------------|-------------------------------------
+| src/Controller/Component/EventsComponent.php | Data access component for event data.
+| src/Controller/EventsController.php          | Handles Event API requests.
+| src/Template/Events/event.ctp                | Template to edit an event.
+| src/Template/Events/index.ctp                | Template to display event listing.
+| src/Template/Layout/default.ctp              | Main layout for the pages.
+| webroot/css/events/style.css                 | Events styles.
+| webroot/js/events/event.js                   | Edit event front end code.
+| webroot/js/events/index.js                   | Event listing front end code.
+| webroot/js/api.js                            | Front end api methods.
 
 ## TODO
 

@@ -3,6 +3,10 @@ namespace App\Controller\Component;
 
 use Cake\Controller\Component;
 
+// TODO: Replace most of the functioanlities in this component to a database.
+// This class used to mock data for the purpose of the demo.
+// Session is used to store data just for the purpose of simplifing the running of the application.
+// In real world application a database will be used.
 class EventsComponent extends Component {
 
   public $initialEvents = array(
@@ -44,6 +48,7 @@ class EventsComponent extends Component {
   );
 
   public function initialize(array $config) {
+    // Uncomment this for fresh data.
     //$this->destroySession();
     $events = $this->getEvents();
     if (!$events) {
@@ -83,9 +88,39 @@ class EventsComponent extends Component {
     return array_values($event)[0];
   }
 
+  public function saveEvent($updatedEvent) {
+    $events = $this->getEvents();
+    $newEvents = [];
+    foreach ($events as $event) {
+      if($event["id"] == $updatedEvent["id"]){
+        $newEvents[] = $updatedEvent;
+      } else {
+        $newEvents[] = $event;
+      }
+    }
+    $session = $this->request->session();
+    $events = $session->write('events', $newEvents);
+  }
+
+  public function clearEvents() {
+    $session = $this->request->session();
+    $events = $session->write('events', []);
+  }
+
+  // This is just for debugging
+  public function destroySession() {
+    $session = $this->request->session();
+    $session->destroy();
+  }
+
+  // TODO: Move this to a seperate Google api component.
   public function calculateDistance($destinationAddress) {
+    //TODO: Move to private environment config
     $apiKey = 'AIzaSyBIRx_ImloWH09IkqwqeVeN9r_L5-R54dE';
+
+    // This should come database
     $originAddress = '175 Beecroft Rd, Cheltenham NSW 2119, Australia';
+
     $baseUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json';
     $requestUrlArr = array(
       $baseUrl,
@@ -115,27 +150,4 @@ class EventsComponent extends Component {
     return $resp;
   }
 
-  public function saveEvent($updatedEvent) {
-    $events = $this->getEvents();
-    $newEvents = [];
-    foreach ($events as $event) {
-      if($event["id"] == $updatedEvent["id"]){
-        $newEvents[] = $updatedEvent;
-      } else {
-        $newEvents[] = $event;
-      }
-    }
-    $session = $this->request->session();
-    $events = $session->write('events', $newEvents);
-  }
-
-  public function clearEvents() {
-    $session = $this->request->session();
-    $events = $session->write('events', []);
-  }
-
-  public function destroySession() {
-    $session = $this->request->session();
-    $session->destroy();
-  }
 }
