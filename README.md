@@ -1,4 +1,4 @@
-# Sentral Events
+# Events
 
 ## Overview
 
