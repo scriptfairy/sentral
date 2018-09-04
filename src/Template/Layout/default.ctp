@@ -3,7 +3,7 @@
 <head>
   <?= $this->Html->charset() ?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sentral:Developer Challenge</title>
+  <title>Christine: Code sample</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/events/style.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
   <div class="container-fluid clearfix">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Sentral Events</a>
+      <a class="navbar-brand" href="/">Events</a>
     </nav>
     <?= $this->fetch('content') ?>
   </div>

@@ -141,7 +141,7 @@ class EventsComponent extends Component {
     curl_setopt_array($curl, array(
       CURLOPT_RETURNTRANSFER => 1,
       CURLOPT_URL => $requestUrl,
-      CURLOPT_USERAGENT => 'Sentral Sample cURL Request'
+      CURLOPT_USERAGENT => 'Christine Sample cURL Request'
     ));
     // Send the request & save response to $resp
     $resp = curl_exec($curl);
