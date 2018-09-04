@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a partial application based on the provided spec. The back end is written in CakePHP 3 and the front end is written in Vue.js, used Google API to calculate the distance between locations and Bootstrap for responsive style.
+This is a partial application to demonstrate an event listing page and edit page. The back end is written in CakePHP 3 and the front end is written in Vue.js, used Google API to calculate the distance between locations and Bootstrap for responsive style.
 
 For the back end data storage, I used default PHP session instead of typical database just to simplify the code.
 
@@ -39,7 +39,7 @@ bin/cake server
 
 * I assumed the category is a fixed list.
 
-* It was not clear how participants should work therefore I left it out.
+* I will add participants functionalities if needed.
 
 ## Notes
 
